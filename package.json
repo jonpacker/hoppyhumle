@@ -11,5 +11,12 @@
     "url": "http://www.github.com/jonpacker/hoppyhumle"
   },
   "author": "Jon Packer",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "async": "~0.2.6",
+    "naan": "~1.3.10",
+    "neo4j-vm": "~0.1.6",
+    "seraph": "~0.4.0",
+    "neo4j-supervisor": "~0.1.1"
+  }
 }
