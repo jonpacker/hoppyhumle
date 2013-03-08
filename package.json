@@ -1,0 +1,15 @@
+{
+  "name": "hoppyhumle",
+  "version": "0.1.0",
+  "description": "hoppyhumle blog engine",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://www.github.com/jonpacker/hoppyhumle"
+  },
+  "author": "Jon Packer",
+  "license": "MIT"
+}
