@@ -9,7 +9,7 @@ module.exports = function(db) {
   });
 
   Entry.on('prepare', function addTimestamp(entry, cb) {
-    cb(null, entry.timestamp = Date.now());
+    cb(null, entry.timestamp = Date.now(), entry);
   })
 
   Entry.on('index', function(entry, cb) {
