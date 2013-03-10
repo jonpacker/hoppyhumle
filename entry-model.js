@@ -22,10 +22,11 @@ module.exports = function(db) {
 
   Entry.tag = function(entry, tags, cb) {
     function tagEntryWith(tag, cb) {
+      tag = {tag:tag};
       var getTagObj = function(cb) {
-        Tag.read(tag, function(err, tag) {
+        Tag.where(tag, function(err, tagObj) {
           if (err) return cb(err);
-          else if (tag) return cb(null, tag);
+          else if (tagObj.length > 0) return cb(null, tagObj);
           Tag.save(tag, cb);
         })
       };

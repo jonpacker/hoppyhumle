@@ -1,18 +1,20 @@
 var entry = require('./entry-model');
 var async = require('async');
+var naan = require('naan');
 module.exports = function(title, tags, file, attrs, cb) {
   require('./db.js')(function(err, db) {
-    console.log("Hallo i am a db")
     if (err) return cb(err);
     var Entry = entry(db);
     var newEntry = { title: title, file: file };
     Object.keys(attrs).forEach(function(attr) { newEntry[attr] = attrs[attr] });
     
-    async.series([
+    async.waterfall([
       Entry.save.bind(Entry, newEntry),
-      Entry.tag.bind(Entry, newEntry, tags)
-    ], function(err, stuff) {
-      console.log("Finished!", err, stuff);
-    });
+      function(entry, cb) { 
+        Entry.tag(entry, tags, function(err, rels) {
+          cb(err, !err && entry);
+        });
+      },
+    ], cb);
   });
 };
