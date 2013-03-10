@@ -1,6 +1,8 @@
 var entry = require('./entry-model');
+var async = require('async');
 module.exports = function(title, tags, file, attrs, cb) {
   require('./db.js')(function(err, db) {
+    console.log("Hallo i am a db")
     if (err) return cb(err);
     var Entry = entry(db);
     var newEntry = { title: title, file: file };
@@ -9,6 +11,8 @@ module.exports = function(title, tags, file, attrs, cb) {
     async.series([
       Entry.save.bind(Entry, newEntry),
       Entry.tag.bind(Entry, newEntry, tags)
-    ], cb);
+    ], function(err, stuff) {
+      console.log("Finished!", err, stuff);
+    });
   });
 };
