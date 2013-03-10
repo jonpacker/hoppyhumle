@@ -9,7 +9,7 @@ module.exports = function(db) {
   
   Entry.on('prepare', function addSlug(entry, cb) {
     if (!entry.title) return cb(new Error('Entry must have a title :/'));
-    cb(null, (entry.slug = slug(entry.title), entry));
+    cb(null, (entry.slug = slug(entry.title).toLowerCase(), entry));
   });
 
   Entry.on('prepare', function addTimestamp(entry, cb) {
