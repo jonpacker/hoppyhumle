@@ -2,6 +2,7 @@ var model = require('seraph-model');
 var tag = require('./tag-model');
 var slug = require('slug');
 var async = require('async');
+var getit = require('getit');
 
 module.exports = function(db) {
   var Entry = model(db, 'entry');
@@ -46,6 +47,17 @@ module.exports = function(db) {
       "SKIP {start}",
       "LIMIT {limit}"
     ].join(" "), {start: start, limit: limit}, cb);
+  };
+
+  Entry.fetchContent = function(entry, cb) {
+    if (Array.isArray(entry)) {
+      return async.map(entry, Entry.fetchContent, cb);
+    }
+
+    getit(entry.file, function(err, data) {
+      if (err) return cb(err);
+      cb(null, (entry.content = data, entry));
+    });
   };
 
   return Entry;

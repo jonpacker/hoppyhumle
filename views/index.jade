@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  for entry in entries
+    .entry
+      h2.entry-title= entry.title
+      .entry-content!= entry.content
