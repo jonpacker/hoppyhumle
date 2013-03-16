@@ -39,5 +39,14 @@ module.exports = function(db) {
     async.map(tags, tagEntryWith, cb);
   };
 
+  Entry.paginatedFetch = function(start, count, cb) {
+    db.query([
+      "START node = " + Entry.cypherStart()",
+      "ORDER BY node.timestamp DESC",
+      "SKIP {start}",
+      "LIMIT {limit}"
+    ].join(" "), {start: start, limit: limit}, cb);
+  };
+
   return Entry;
 };
