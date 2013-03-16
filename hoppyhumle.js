@@ -11,6 +11,9 @@ function compileStylus(str, path) {
 module.exports = function(config, cb) {
   db(function(err, db) {
     if (err) return cb(err);
+    console.log("DB Initialized.");
+    
+    config.pubdir = path.resolve(config.pubdir);
 
     var app = express();
     app.set('views', __dirname + '/views');
@@ -25,4 +28,4 @@ module.exports = function(config, cb) {
     require('./routes')(app, db);
     cb(null, app);
   });
-});
+};
