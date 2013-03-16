@@ -8,20 +8,22 @@ function compileStylus(str, path) {
   return stylus(str).set('filename', path).use(nib());
 };
 
-db(function(err, db) {
-  if (err) throw err;
+module.exports = function(config) {
+  db(function(err, db) {
+    if (err) throw err;
 
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.logger('dev'));
-  app.use(stylus.middleware({ 
-    src: __dirname + '/public/css/', 
-    compile: compileStylus 
-  }));
-  app.use(express.static(__dirname + '/public'));
+    app.set('views', config.dirs.routes);
+    app.set('view engine', 'jade');
+    if (config.logger) app.use(express.logger(config.logger));
+    app.use(stylus.middleware({ 
+      src: config.dirs.stylus, 
+      compile: compileStylus 
+    }));
+    app.use(express.static(config.dirs.pub));
 
-  require('./routes')(app, db);
-  app.listen(5892, function() {
-    console.log("Listening on 5892.");
+    require(config.dirs.routes)(app, db);
+    app.listen(config.port, function() {
+      console.log("Listening on", config.port);
+    });
   });
 });
