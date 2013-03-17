@@ -42,11 +42,12 @@ module.exports = function(db) {
 
   Entry.paginatedFetch = function(start, count, cb) {
     db.query([
-      "START node = " + Entry.cypherStart()",
+      "START node = " + Entry.cypherStart(),
+      "RETURN node",
       "ORDER BY node.timestamp DESC",
-      "SKIP {start}",
-      "LIMIT {limit}"
-    ].join(" "), {start: start, limit: limit}, cb);
+      "SKIP " + parseInt(start, 10),
+      "LIMIT " + parseInt(count, 10)
+    ].join(" "), cb);
   };
 
   Entry.fetchContent = function(entry, cb) {

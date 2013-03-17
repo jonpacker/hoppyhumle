@@ -6,6 +6,7 @@ module.exports = function(app, db) {
       db.models.entry.fetchContent,
     ], function(err, entries) {
       if (err) return res.send(500, err);
+      console.log(entries);
       res.render('index', { entries: entries });
     });
   });
