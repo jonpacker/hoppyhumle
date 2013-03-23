@@ -3,6 +3,7 @@ var tag = require('./tag-model');
 var slug = require('slug');
 var async = require('async');
 var getit = require('getit');
+var marked = require('marked')
 
 module.exports = function(db) {
   var Entry = model(db, 'entry');
@@ -57,7 +58,20 @@ module.exports = function(db) {
 
     getit(entry.file, function(err, data) {
       if (err) return cb(err);
-      cb(null, (entry.content = data, entry));
+      var rendered = marked(data);
+      cb(null, (entry.content = rendered, entry));
+    });
+  };
+
+  Entry.fetchTags = function(entry, cb) {
+    if (Array.isArray(entry)) {
+      return async.map(entry, Entry.fetchTags, cb);
+    }
+
+    Tag.for(entry, function(err, tags) {
+      if (err) return cb(err);
+      tags = tags.map(function(tag) { return tag.tag });
+      cb(null, (entry.tags = tags, entry));
     });
   };
 

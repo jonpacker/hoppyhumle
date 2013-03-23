@@ -1,2 +1,134 @@
+@import 'nib'
+
 body
-  font-family "Proxima Nova"
+  font-family "Libre Baskerville", serif;
+  font-size 16px
+  position relative
+  background url(/img/texture.png) repeat
+
+body
+html
+  margin 0px
+  padding 0px
+
+.bar
+  width 300px
+  height 100%
+  position fixed
+  background url(/img/sidebar.jpg) no-repeat
+  background-size 100%
+  top 0px
+
+.container 
+  margin-left 300px
+  width 712px
+  background-color white
+  overflow visible
+
+h1, h2, h3, h4, h5, h6
+  font-family Snippet, sans-serif
+
+h1
+  font-size 64px
+
+h2
+  font-size 48px
+  margin 0px
+  padding 0.83em 0px
+
+h3
+  font-size 32px
+
+h4
+  font-size 28px
+
+h5
+  font-size 22px
+
+
+.title-block
+  color white
+  text-align center
+
+  h1
+    font-size 32px 
+    margin-top 15px
+    text-transform uppercase
+
+  em
+    font-size 13px
+    display block
+    margin-top -26px
+    color rgba(255,255,255,0.7)
+
+  .me 
+    display block
+    width 60px
+    height 60px
+    border-radius 30px
+    margin 25px auto 0px
+    background-image url(/img/me.jpg)
+    background-size 60px 60px
+    box-shadow 0px 0px 0px 2px #F8FFFD, 0px 0px 0px 4px #FFBD90
+
+.entry p
+  line-height 30px
+
+.entry
+  width 600px
+  padding 0px 56px 80px 50px
+  text-align justify
+  border-left 6px solid #ccc
+
+  a
+    text-decoration none
+    color #555c95
+
+  a:hover
+    color #524724
+
+  .r-comp
+    width 500px 
+    padding 15px 56px 15px 150px
+    margin-left -50px
+    background-color #eee
+    position relative
+
+    &:before
+      display inline-block
+      content attr(data-name) " "
+      font-family Snippet, sans-serif
+      border-bottom 2px solid white
+      text-transform uppercase
+      font-size 16px
+      color #444
+      position absolute
+      padding-left 50px
+      left 0px
+
+    &[data-name="looks"]
+      background-color lighten(#B2AEA1, 50%)
+    &[data-name="aroma"]
+      background-color lighten(#9CB2AE, 50%)
+    &[data-name="flavour"]
+      background-color lighten(#CCC6B2, 50%)
+    &[data-name="finish"]
+      background-color lighten(#FFBD90, 50%)
+
+.entry-tags
+  font-size 13px
+  color #999
+  font-style italic
+
+  a.tag 
+    display inline-block
+    color #444
+    text-decoration none
+    margin-left 6px
+
+  a.tag:not(:last-of-type):after
+    content ','
+
+  a.tag:hover
+    text-decoration none
+    color #000

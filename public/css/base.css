@@ -1,0 +1,146 @@
+body {
+  font-family: "Libre Baskerville", serif;
+  font-size: 16px;
+  position: relative;
+  background: url("/img/texture.png") repeat;
+}
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+}
+.bar {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  background: url("/img/sidebar.jpg") no-repeat;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  top: 0px;
+}
+.container {
+  margin-left: 300px;
+  width: 712px;
+  background-color: #fff;
+  overflow: visible;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Snippet, sans-serif;
+}
+h1 {
+  font-size: 64px;
+}
+h2 {
+  font-size: 48px;
+  margin: 0px;
+  padding: 0.83em 0px;
+}
+h3 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 28px;
+}
+h5 {
+  font-size: 22px;
+}
+.title-block {
+  color: #fff;
+  text-align: center;
+}
+.title-block h1 {
+  font-size: 32px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+.title-block em {
+  font-size: 13px;
+  display: block;
+  margin-top: -26px;
+  color: rgba(255,255,255,0.7);
+}
+.title-block .me {
+  display: block;
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  margin: 25px auto 0px;
+  background-image: url("/img/me.jpg");
+  -webkit-background-size: 60px 60px;
+  -moz-background-size: 60px 60px;
+  background-size: 60px 60px;
+  -webkit-box-shadow: 0px 0px 0px 2px #f8fffd, 0px 0px 0px 4px #ffbd90;
+  box-shadow: 0px 0px 0px 2px #f8fffd, 0px 0px 0px 4px #ffbd90;
+}
+.entry p {
+  line-height: 30px;
+}
+.entry {
+  width: 600px;
+  padding: 0px 56px 80px 50px;
+  text-align: justify;
+  border-left: 6px solid #ccc;
+}
+.entry a {
+  text-decoration: none;
+  color: #555c95;
+}
+.entry a:hover {
+  color: #524724;
+}
+.entry .r-comp {
+  width: 500px;
+  padding: 15px 56px 15px 150px;
+  margin-left: -50px;
+  background-color: #eee;
+  position: relative;
+}
+.entry .r-comp:before {
+  display: inline-block;
+  content: attr(data-name) " ";
+  font-family: Snippet, sans-serif;
+  border-bottom: 2px solid #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #444;
+  position: absolute;
+  padding-left: 50px;
+  left: 0px;
+}
+.entry .r-comp[data-name="looks"] {
+  background-color: #d9d7d0;
+}
+.entry .r-comp[data-name="aroma"] {
+  background-color: #ced9d7;
+}
+.entry .r-comp[data-name="flavour"] {
+  background-color: #e6e3d8;
+}
+.entry .r-comp[data-name="finish"] {
+  background-color: #ffdec8;
+}
+.entry-tags {
+  font-size: 13px;
+  color: #999;
+  font-style: italic;
+}
+.entry-tags a.tag {
+  display: inline-block;
+  color: #444;
+  text-decoration: none;
+  margin-left: 6px;
+}
+.entry-tags a.tag:not(:last-of-type):after {
+  content: ',';
+}
+.entry-tags a.tag:hover {
+  text-decoration: none;
+  color: #000;
+}

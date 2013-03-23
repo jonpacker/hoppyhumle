@@ -5,3 +5,6 @@ block content
     .entry
       h2.entry-title= entry.title
       .entry-content!= entry.content
+      .entry-tags Tagged under
+        for tag in entry.tags
+          a.tag(href='/tag/#{tag}')= tag

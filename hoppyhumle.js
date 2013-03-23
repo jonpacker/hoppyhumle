@@ -24,7 +24,8 @@ module.exports = function(config, cb) {
     app.set('view engine', 'jade');
     if (config.logger) app.use(express.logger(config.logger));
     app.use(stylus.middleware({ 
-      src: path.join(config.pubdir, 'css'), 
+      src: config.pubdir, 
+      force: true, 
       compile: compileStylus 
     }));
     app.use(express.static(config.pubdir));
