@@ -21,7 +21,7 @@ html {
 }
 .container {
   margin-left: 300px;
-  width: 712px;
+  width: 772px;
   background-color: #fff;
   overflow: visible;
 }
@@ -39,16 +39,19 @@ h1 {
 h2 {
   font-size: 48px;
   margin: 0px;
-  padding: 0.83em 0px;
+  padding: 0.8em 0px 0.4em;
 }
 h3 {
   font-size: 32px;
+  margin-bottom: 0.3em;
 }
 h4 {
   font-size: 28px;
+  margin-bottom: 0.2em;
 }
 h5 {
   font-size: 22px;
+  margin-bottom: 0.1em;
 }
 .title-block {
   color: #fff;
@@ -79,14 +82,25 @@ h5 {
   -webkit-box-shadow: 0px 0px 0px 2px #f8fffd, 0px 0px 0px 4px #ffbd90;
   box-shadow: 0px 0px 0px 2px #f8fffd, 0px 0px 0px 4px #ffbd90;
 }
+.entry {
+  width: 600px;
+  padding: 0px 86px 80px 80px;
+  text-align: justify;
+  border-left: 6px solid #ccc;
+}
 .entry p {
   line-height: 30px;
 }
-.entry {
+.entry code {
+  font-family: Inconsolata, monospace;
+}
+.entry pre {
   width: 600px;
-  padding: 0px 56px 80px 50px;
-  text-align: justify;
-  border-left: 6px solid #ccc;
+  padding: 15px 86px 15px 80px;
+  margin-left: -80px;
+  background-color: #eee;
+  position: relative;
+  background-color: #f5f4f0;
 }
 .entry a {
   text-decoration: none;
@@ -95,10 +109,20 @@ h5 {
 .entry a:hover {
   color: #524724;
 }
+.entry img {
+  max-width: 300px;
+  float: right;
+  margin: 10px 0px 10px 30px;
+}
+.entry .rating {
+  font-size: 48px;
+  font-style: italic;
+  text-align: center;
+}
 .entry .r-comp {
   width: 500px;
-  padding: 15px 56px 15px 150px;
-  margin-left: -50px;
+  padding: 15px 86px 15px 180px;
+  margin-left: -80px;
   background-color: #eee;
   position: relative;
 }
@@ -130,6 +154,8 @@ h5 {
   font-size: 13px;
   color: #999;
   font-style: italic;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ffefe3;
 }
 .entry-tags a.tag {
   display: inline-block;

@@ -21,7 +21,7 @@ html
 
 .container 
   margin-left 300px
-  width 712px
+  width 772px
   background-color white
   overflow visible
 
@@ -34,16 +34,19 @@ h1
 h2
   font-size 48px
   margin 0px
-  padding 0.83em 0px
+  padding 0.8em 0px 0.4em
 
 h3
   font-size 32px
+  margin-bottom 0.3em
 
 h4
   font-size 28px
+  margin-bottom 0.2em
 
 h5
   font-size 22px
+  margin-bottom 0.1em
 
 
 .title-block
@@ -71,14 +74,25 @@ h5
     background-size 60px 60px
     box-shadow 0px 0px 0px 2px #F8FFFD, 0px 0px 0px 4px #FFBD90
 
-.entry p
-  line-height 30px
-
 .entry
   width 600px
-  padding 0px 56px 80px 50px
+  padding 0px 86px 80px 80px
   text-align justify
   border-left 6px solid #ccc
+
+  p
+    line-height 30px
+
+  code
+    font-family Inconsolata, monospace
+
+  pre
+    width 600px 
+    padding 15px 86px 15px 80px
+    margin-left -80px
+    background-color #eee
+    position relative
+    background-color lighten(#CCC6B2, 80%)
 
   a
     text-decoration none
@@ -87,10 +101,20 @@ h5
   a:hover
     color #524724
 
+  img
+    max-width 300px
+    float right
+    margin 10px 0px 10px 30px
+
+  .rating
+    font-size 48px
+    font-style italic
+    text-align center
+
   .r-comp
     width 500px 
-    padding 15px 56px 15px 150px
-    margin-left -50px
+    padding 15px 86px 15px 180px
+    margin-left -80px
     background-color #eee
     position relative
 
@@ -119,6 +143,9 @@ h5
   font-size 13px
   color #999
   font-style italic
+
+  padding-bottom 20px
+  border-bottom 1px solid lighten(#FFBD90, 75%)
 
   a.tag 
     display inline-block

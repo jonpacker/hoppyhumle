@@ -9,9 +9,11 @@ function compileStylus(str, path) {
 };
 
 module.exports = function(config, cb) {
+  console.log("Initializing db...");
   db(function(err, db) {
     if (err) return cb(err);
 
+    console.log("DB initialized.");
     db.models = {
       entry: require('./entry-model')(db),
       tag: require('./tag-model')(db)
